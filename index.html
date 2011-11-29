@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="apple-touch-icon-precomposed" href="../favicon.png">
+	<link rel="apple-touch-startup-image" href="startup.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<script type="text/javascript" src="http://use.typekit.com/kxq3uqq.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+	<script src="https://raw.github.com/davatron5000/FitText.js/master/jquery.fittext.js"></script>
+</head>
+<body onload="startTime();">
+	<div class="tweets">
+
+	</div>
+	<div class="clock">
+		<div class="timer">
+			<span>
+				<i id="h">18</i><em>:</em><i id="m">02</i><em>:</em><i id="s">02</i>
+			</span>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function startTime()
+		{
+			var today=new Date();
+			var h=today.getHours();
+			var m=today.getMinutes();
+			var s=today.getSeconds();
+			// add a zero in front of numbers<10
+			if(h<8 || h>17) {
+				$('html').addClass('evening');
+			}
+			h=checkTime(h);
+			m=checkTime(m);
+			s=checkTime(s);
+			document.getElementById('h').innerHTML=h;
+			document.getElementById('m').innerHTML=m;
+			document.getElementById('s').innerHTML=s;
+			t=setTimeout('startTime()',500);
+			$('.timer em').animate({
+				opacity: 0
+				}, 1000, function(){
+					$(this).css('opacity', '1');
+				}
+			);
+		}
+
+		function checkTime(i)
+		{
+			if (i<10)
+			  {
+			  i="0" + i;
+			  }
+			return i;
+		}
+
+		$('.timer').fitText(0.7, {minFontSize: '72px'});
+	</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	background: #fff;
+	color: #333;
+	font-family: futura-pt, Helvetica Neue, Helvetica, Open Sans, Arial, sans-serif;
+	font-size: 100%;
+	line-height: 1.5;
+	overflow: hidden;
+	height: 100%;
+	-webkit-transition: 6s ease;
+	-webkit-transition-property: color, background;
+}
+
+.evening, .evening body {
+	background: #334;
+	color: #eee;
+}
+
+.clock {
+	width: 50%;
+	float: right;
+	text-align: center;
+	font-weight: 100;
+	font-size: 6em;
+	vertical-align: middle;
+	height: 100%;
+	display: table;
+	-webkit-animation: fade 1.5s .5s ease;
+	-webkit-animation-fill-mode: both;
+}
+
+.clock .timer {
+	vertical-align: middle;
+	display: table-cell;
+}
+
+.clock .timer span {
+	border-bottom: 5px solid #AB8C90;
+}
+
+.clock i, .clock em {
+	font-style: normal;
+}
+
+@-webkit-keyframes fade {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@media screen and (max-width: 480px) {
+	.clock {
+		width: 100%;
+		float: none;
+	}
+}
